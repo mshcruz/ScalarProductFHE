@@ -1,0 +1,1 @@
+Implementation of scalar product (aka: inner product, dot product) between two arrays of integers using HElib, a library for fully homomorphic encryption.
