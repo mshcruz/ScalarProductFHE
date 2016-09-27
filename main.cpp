@@ -118,7 +118,7 @@ NTL::ZZ multiplyAndTotalSum(long u[], long v[], FHEPubKey pk, FHESecKey sk, FHEc
 	ea.encrypt(encV, pk, V);
 
 	// Multiply ciphertexts and set the result to encU
-	encU.multiplyBy(encU);
+	encU.multiplyBy(encV);
 
 	// Use the totalSums functions to sum all the elements 
 	// The result will have the sum in all positions of the vector
@@ -180,7 +180,7 @@ int main(int argc, char **argv)
 	tMethod1.start();
 	ZZ method1Result = noPackingMultiplyAndSum(u, v, sk, pk);
 	tMethod1.stop();
-	std::cout << "Muliply and sum arrays without packing method result:" << method1Result << ". Done in " << tMethod1.elapsed_time() << "s." <<  std::endl;	
+	std::cout << "Muliply and sum arrays without packing method result: " << method1Result << ". Done in " << tMethod1.elapsed_time() << "s." <<  std::endl;	
 	
 	/*** METHOD 2: USE COEFFICIENT PACKING, INVERT AND MULTIPLY POLYNOMIALS***/
 	Timer tMethod2;
